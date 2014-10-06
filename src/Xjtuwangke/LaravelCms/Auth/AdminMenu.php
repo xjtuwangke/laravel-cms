@@ -6,7 +6,7 @@
  * Time: 16:51
  */
 
-namespace Xjtuwangke\LaravelCms\Admin;
+namespace Xjtuwangke\LaravelCms\Auth;
 
 class AdminMenu {
 
