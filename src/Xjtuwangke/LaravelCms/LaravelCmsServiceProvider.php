@@ -19,6 +19,10 @@ class LaravelCmsServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('xjtuwangke/laravel-cms');
+        \Validator::resolver(function($translator, $data, $rules, $messages)
+        {
+            return new KValidator($translator, $data, $rules, $messages);
+        });
 	}
 
 	/**

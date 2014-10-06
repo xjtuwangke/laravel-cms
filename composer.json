@@ -10,6 +10,9 @@
     "require": {
         "php": ">=5.4.0",
         "illuminate/support": "4.2.*"
+        , "xjtuwangke/sms": "dev-master"
+        , "xjtuwangke/php-random": "dev-master"
+        , "caouecs/laravel4-lang": "dev-master"
     },
     "autoload": {
         "classmap": [
@@ -19,5 +22,5 @@
             "Xjtuwangke\\LaravelCms\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
