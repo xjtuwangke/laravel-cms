@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'model' => 'AdminUserModel',
+	'model' => 'Xjtuwangke\LaravelModels\Rbac\AdminUserModel',
 
 	/*
 	|--------------------------------------------------------------------------

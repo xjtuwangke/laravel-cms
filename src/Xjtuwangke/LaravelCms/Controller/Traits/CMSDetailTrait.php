@@ -8,6 +8,11 @@
 
 namespace Xjtuwangke\LaravelCms\Controller\Traits;
 
+use Xjtuwangke\LaravelCms\Elements\KPanel;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\View;
+
 trait CMSDetailTrait {
 
     /**
@@ -43,7 +48,7 @@ trait CMSDetailTrait {
 
         $url = HTMLize::create( $item )->url();
         if( 'javascript:;' != $url && $url ){
-            $shortcut = new stdClass();
+            $shortcut = new \stdClass();
             $shortcut->url = $url;
             $shortcut->title = '网页中查看';
             $this->layout->shortcuts[] = $shortcut;
@@ -52,11 +57,11 @@ trait CMSDetailTrait {
         try{
             $url = URL::action( static::$action . '.edit.form' , [ $id ]   ) ;
         }
-        catch( InvalidArgumentException $e){
+        catch( \InvalidArgumentException $e){
             $url = null;
         }
         if( $url ){
-            $shortcut = new stdClass();
+            $shortcut = new \stdClass();
             $shortcut->url = $url;
             $shortcut->title = '打开编辑';
             $this->layout->shortcuts[] = $shortcut;

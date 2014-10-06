@@ -512,7 +512,7 @@ class FormFieldBase {
         $class_name = strtolower( get_class( $this ) );
         $class_name = explode( "\\" , $class_name );
         $class_name = array_pop( $class_name );
-        return \Illuminate\Support\Facades\View::make( 'laravel-kform::' . $class_name )->with( 'field' , $this );
+        return \Illuminate\Support\Facades\View::make( 'laravel-cms::formfields/' . $class_name )->with( 'field' , $this );
     }
 
     /**

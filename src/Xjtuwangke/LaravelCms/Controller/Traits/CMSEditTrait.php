@@ -8,6 +8,16 @@
 
 namespace Xjtuwangke\LaravelCms\Controller\Traits;
 
+use Illuminate\Support\Facades\Route;
+use Xjtuwangke\LaravelCms\Elements\Form\KForm;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\HTML;
+use Illuminate\Support\Facades\URL;
+use InvalidArgumentException;
+use Illuminate\Support\Facades\Redirect;
+use Xjtuwangke\LaravelCms\Elements\KMessager;
+
 trait CMSEditTrait {
 
     public static function _routes_edit(){
@@ -27,7 +37,7 @@ trait CMSEditTrait {
      * @return KForm
      */
     protected function _form( $id = 0 , $item = null ){
-        $form = new \Xjtuwangke\LaravelKform\KForm();
+        $form = new KForm();
         if( $id == 0 ){
             $form->setAction( static::$action . '.create.store' );
         }
@@ -71,7 +81,7 @@ trait CMSEditTrait {
      * @param int   $id
      * @return mixed
      */
-    protected function _store( \Xjtuwangke\LaravelKform\KForm $form , $item , $id = 0){
+    protected function _store( KForm $form , $item , $id = 0){
         $item = $form->save( $item );
         return $item->save();
     }
