@@ -12,6 +12,7 @@ namespace Xjtuwangke\LaravelCms\Controller\Traits;
 use Illuminate\Support\Facades\URL;
 use Xjtuwangke\LaravelModels\Rbac\AdminUserModel;
 use Illuminate\Support\Facades\Session;
+use Xjtuwangke\LaravelCms\Auth\Permission;
 
 trait CMSButtonsTrait {
 
@@ -32,7 +33,7 @@ trait CMSButtonsTrait {
     public static function block_btn_create(){
         $action = static::$action . '.create.form';
         $url = URL::action( $action );
-        if(  AdminUserModel::checkMyAdminPermission( $action ) ){
+        if(  Permission::checkMe( $action ) ){
             $disabled = '';
         }
         else{
@@ -51,7 +52,7 @@ trait CMSButtonsTrait {
             return '';
         }
         $action = static::$action . '.edit.form';
-        if( AdminUserModel::checkMyAdminPermission( $action ) ){
+        if( Permission::checkMe( $action ) ){
             $disabled = '';
         }
         else{
@@ -69,7 +70,7 @@ trait CMSButtonsTrait {
     public static function block_btn_show( $item ){
         $action = static::$action . '.show.detail';
         $url = URL::action( $action , $item->id );
-        if(  AdminUserModel::checkMyAdminPermission( $action ) ){
+        if(  Permission::checkMe( $action ) ){
             $disabled = '';
         }
         else{
@@ -116,7 +117,7 @@ HTML;
         }
         $urlON = URL::action( static::$action . '.edit.switch.on' );
         $urlOFF = URL::action( static::$action . '.edit.switch.off' );
-        if(  AdminUserModel::checkMyAdminPermission( $action ) ){
+        if(  Permission::checkMe( $action ) ){
             $readonly = "";
         }
         else{

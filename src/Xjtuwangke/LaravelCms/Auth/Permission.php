@@ -5,9 +5,9 @@ namespace Xjtuwangke\LaravelCms\Auth;
 use Xjtuwangke\LaravelModels\Rbac\RoleModel;
 use Xjtuwangke\LaravelModels\AuthModel;
 
-class Rbac {
+class Permission {
 
-    public static function checkAdminPermission( $user , $action , $parameters = null ){
+    public static function check( $user , $action , $parameters = null ){
 
         if( in_array( $action , [ 'admin.login' , 'admin.logout' , 'admin.index' , 'admin.lock' , 'admin.unlock' ] ) ){
             return true;
@@ -19,8 +19,8 @@ class Rbac {
 
     }
 
-    public static function checkMyAdminPermission( $action , $parameters = null ){
-        return static::checkAdminPermission( AuthModel::getUser() , $action , $parameters );
+    public static function checkMe( $action , $parameters = null ){
+        return static::check( AuthModel::getUser() , $action , $parameters );
     }
 
 }

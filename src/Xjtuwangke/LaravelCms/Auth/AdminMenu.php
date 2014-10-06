@@ -8,6 +8,9 @@
 
 namespace Xjtuwangke\LaravelCms\Auth;
 
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Route;
+
 class AdminMenu {
 
     protected $menu = null;
@@ -97,13 +100,13 @@ class AdminMenu {
     }
 
     public function createMenuItem( $title , $action , $parameters = null , $sub = null , $active = false){
-        $item = new stdClass();
+        $item = new \stdClass();
         $item->title = $title;
         if( null == $action ){
             $item->active = $active;
             $item->url = null;
         }
-        elseif( AdminUserModel::checkAdminPermission( $this->user , $action , $parameters ) ){
+        elseif( Permission::check( $this->user , $action , $parameters ) ){
             //
             $item->url = URL::action( $action );
             if( Route::current()->getName() == $action ){

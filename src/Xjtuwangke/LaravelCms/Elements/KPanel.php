@@ -8,6 +8,8 @@
 
 namespace Xjtuwangke\LaravelCms\Elements;
 
+use Illuminate\Support\Facades\HTML;
+
 /**
  * Class KPanel
  */

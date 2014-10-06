@@ -8,6 +8,13 @@
 
 namespace Xjtuwangke\LaravelCms\Controller\Traits;
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\URL;
+use Xjtuwangke\LaravelModels\Rbac\AdminUserModel;
+use Xjtuwangke\LaravelCms\Auth\Permission;
+
 trait CMSStatusTrait {
 
     public static function _routes_status(){
@@ -71,7 +78,7 @@ HTML;
     public static function block_btn_status_select( $item ){
 
         $url = URL::action( static::$action . '.edit.status' );
-        if(  AdminUserModel::checkMyAdminPermission( static::$action . '.edit.status' ) ){
+        if(  Permission::checkMe( static::$action . '.edit.status' ) ){
             $disabled = "";
         }
         else{

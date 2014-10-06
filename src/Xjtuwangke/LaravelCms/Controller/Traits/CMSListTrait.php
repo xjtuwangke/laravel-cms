@@ -8,6 +8,11 @@
 
 namespace Xjtuwangke\LaravelCms\Controller\Traits;
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Input;
+use Xjtuwangke\LaravelCms\Elements\KTable;
+use Illuminate\Support\Facades\View;
+
 trait CMSListTrait {
 
     public static function _routes_index(){

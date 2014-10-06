@@ -8,6 +8,11 @@
 
 namespace Xjtuwangke\LaravelCms\Controller\Traits;
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\View;
+use Xjtuwangke\Random\KRandom;
+
 /**
  * Class CMSPickUpTrait
  * 可以在modal选择框中选择

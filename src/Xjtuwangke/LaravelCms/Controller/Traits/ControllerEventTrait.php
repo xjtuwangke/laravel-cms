@@ -8,6 +8,8 @@
 
 namespace Xjtuwangke\LaravelCms\Controller\Traits;
 
+use Illuminate\Support\Facades\Event;
+
 trait ControllerEventTrait {
 
     protected $controllerAbort = null;

@@ -8,6 +8,9 @@
 
 namespace Xjtuwangke\LaravelCms\Controller\Traits;
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Input;
+
 trait CMSSwitchTrait {
 
     public static function _routes_switch(){

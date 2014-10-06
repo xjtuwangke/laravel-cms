@@ -8,6 +8,8 @@
 
 namespace Xjtuwangke\LaravelCms\Elements;
 
+use Illuminate\Support\Facades\HTML;
+
 class KTable {
 
     protected $thead = [];
@@ -58,7 +60,7 @@ class KTable {
      * @return $this
      */
     public function th( $html , $attributes = [] , $field = null , $searchable = false , $sortable = false , $groupable = false , $func = null ){
-        $head = new stdClass();
+        $head = new \stdClass();
         $head->html = e( $html );
         $head->attributes = HTML::attributes( $attributes );
         $head->field = $field;
@@ -335,7 +337,7 @@ class KTable {
      * @return $this
      */
     public function td( $html , $attributes = [] , $xss = true ){
-        $td = new stdClass();
+        $td = new \stdClass();
         if( false == $xss ){
             $td->html = $html;
         }
@@ -354,7 +356,7 @@ class KTable {
      * @return $this
      */
     public function tr( $attributes = [] ){
-        $tr = new stdClass();
+        $tr = new \stdClass();
         $tr->attributes = HTML::attributes( $attributes );
         $tr->children = $this->tr;
         $this->tbody[] = $tr;

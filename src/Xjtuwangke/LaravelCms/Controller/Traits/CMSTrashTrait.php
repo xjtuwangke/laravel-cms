@@ -8,8 +8,13 @@
 
 namespace Xjtuwangke\LaravelCms\Controller\Traits;
 
-use \Xjtuwangke\LaravelKform\KForm;
-use \Route;
+use Xjtuwangke\LaravelCms\Elements\Form\KForm;
+use Illuminate\Support\Facades\Route;
+use Xjtuwangke\LaravelCms\Elements\Form\FormField\Text;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Xjtuwangke\LaravelCms\Elements\KMessager;
+use Xjtuwangke\LaravelCms\Auth\Permission;
 
 trait CMSTrashTrait {
 
@@ -32,14 +37,14 @@ trait CMSTrashTrait {
             return '';
         }
         $action = static::$action . '.delete.trash';
-        if(  AdminUserModel::checkMyAdminPermission( $action ) ){
+        if(  Permission::checkMe( $action ) ){
             $disabled = '';
         }
         else{
             $disabled = 'disabled';
         }
         $form = new KForm();
-        $form->addField(  new Xjtuwangke\LaravelKform\FormField\Text( 'id[]' ) )->setLabel('')->setDefault( $item->id );
+        $form->addField(  new Text( 'id[]' ) )->setLabel('')->setDefault( $item->id );
         $form = $form->setMethod('POST')->setAction( $action )->hide()->render() . '</form>';
         return "<a class='btn btn-sm btn-danger btn-submit-form-inside gofarms-btn-actions' data-attr-confirm='确定要删除吗' href='javascript:;' {$disabled}>{$form}<span class='glyphicon glyphicon-trash'></span></a>";
     }
@@ -54,14 +59,14 @@ trait CMSTrashTrait {
             return '';
         }
         $action = static::$action . '.delete.restore';
-        if(  AdminUserModel::checkMyAdminPermission( $action ) ){
+        if(  Permission::checkMe( $action ) ){
             $disabled = '';
         }
         else{
             $disabled = 'disabled';
         }
         $form = new KForm();
-        $form->addField(  new Xjtuwangke\LaravelKform\FormField\Text( 'id[]' ) )->setLabel('')->setDefault( $item->id );
+        $form->addField(  new Text( 'id[]' ) )->setLabel('')->setDefault( $item->id );
         $form = $form->setMethod('POST')->setAction( $action )->hide()->render() . '</form>';
         return "<a class='btn btn-sm btn-warning btn-submit-form-inside gofarms-btn-actions gofarms-btn-remove' data-attr-confirm='确定要恢复吗' href='javascript:;' {$disabled}>{$form}<span class='glyphicon glyphicon-repeat'></span></a>";
     }
