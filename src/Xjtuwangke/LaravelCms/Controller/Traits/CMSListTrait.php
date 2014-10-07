@@ -67,7 +67,7 @@ trait CMSListTrait {
         $items = $model->paginate( $this->paginate );
         $this->_index_table( $table , $items );
         $paginate = $items->appends( $q )->links();
-        $this->layout->content = View::make( 'cms/table' )->with('table' , $table )->with( 'pagination' , $paginate )->with( 'q' , $q );
+        $this->layout->content = View::make( 'laravel-cms::cms/table' )->with('table' , $table )->with( 'pagination' , $paginate )->with( 'q' , $q );
     }
 
     /**
