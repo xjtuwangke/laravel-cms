@@ -18,6 +18,7 @@
     "autoload": {
         "classmap": [
             "src/migrations"
+            , "src/controllers"
         ],
         "psr-0": {
             "Xjtuwangke\\LaravelCms\\": "src/"

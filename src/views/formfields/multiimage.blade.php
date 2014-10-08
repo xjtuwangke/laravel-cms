@@ -2,7 +2,7 @@
 <div {{ $field->formgroup() }}>
     <label for="{{ $field->name() }}[]" class="control-label">{{ $field->label() }}</label>
     <div class="row">
-        <div form-role="multi-image-upload" uploadify-image-type="{{{ $field->type() }}}" uploadify-swf-path="{{ \KUrl::asset( 'uploadify/uploadify.swf' , null , false ) }}" uploadify-upload-url="{{ \URL::action( 'uploadify.image' ) }}" uploadify-field-name="{{ $field->name() }}[]">
+        <div form-role="multi-image-upload" uploadify-image-type="{{{ $field->type() }}}" uploadify-swf-path="{{ \Xjtuwangke\LaravelCms\KUrl::asset( 'uploadify/uploadify.swf' , null , false ) }}" uploadify-upload-url="{{ \URL::action( 'uploadify.image' ) }}" uploadify-field-name="{{ $field->name() }}[]">
             <div class="uploadify-multi-image-container">
                 @foreach( $field->value() as $image )
                 <div class="uploadify-image">

@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>农场来了管理后台|登陆</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <?=HTML::style( KUrl::asset('css/basic.min.css','admin'))?>
-    <?=HTML::style( KUrl::asset('css/admin_lte.min.css','admin'))?>
-    <?=HTML::style( KUrl::asset('css/admin.min.css','admin'))?>
+    <?=HTML::style( Xjtuwangke\LaravelCms\KUrl::asset('css/basic.min.css'))?>
+    <?=HTML::style( Xjtuwangke\LaravelCms\KUrl::asset('css/admin_lte.min.css'))?>
+    <?=HTML::style( Xjtuwangke\LaravelCms\KUrl::asset('css/admin.min.css'))?>
     <!--[if lte IE 8]>
-    <?=HTML::script( KUrl::asset('js/respond.min.js','admin') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('js/respond.min.js') )?>
     <![endif]-->
 </head>
 <body class="bg-black">

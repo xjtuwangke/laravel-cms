@@ -7,25 +7,25 @@
     <meta name="description" content="{{{ $description or '' }}}">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <?=HTML::style( KUrl::asset('css/basic.min.css','admin'))?>
-    <?=HTML::style( KUrl::asset('css/admin_lte.min.css','admin'))?>
-    <?=HTML::style( KUrl::asset('css/admin.min.css','admin'))?>
+    <?=HTML::style( Xjtuwangke\LaravelCms\KUrl::asset('css/basic.min.css'))?>
+    <?=HTML::style( Xjtuwangke\LaravelCms\KUrl::asset('css/admin_lte.min.css'))?>
+    <?=HTML::style( Xjtuwangke\LaravelCms\KUrl::asset('css/admin.min.css'))?>
     @if ( isset( $css ) && is_array( $css ) )
     @foreach( $css as $one )
-    <?=HTML::style( KUrl::asset($one,'admin'))?>
+    <?=HTML::style( Xjtuwangke\LaravelCms\KUrl::asset($one))?>
     @endforeach
     @endif
-    <?=HTML::script( KUrl::asset('js/basic.min.js','admin') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('js/basic.min.js') )?>
     <!--[if lte IE 8]>
-    <?=HTML::script( KUrl::asset('js/respond.min.js','admin') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('js/respond.min.js') )?>
     <![endif]-->
-    <?=HTML::script( KUrl::asset('js/admin.min.js','admin') )?>
-    <?=HTML::script( KUrl::asset('js/admin_lte.min.js','admin') )?>
-    <?=HTML::script( KUrl::asset('ckeditor/ckeditor.js','admin') )?>
-    <?=HTML::script( KUrl::asset('ckeditor/config.js','admin') )?>
-    <?=HTML::script( KUrl::asset('ckeditor/styles.js','admin') )?>
-    <?=HTML::script( KUrl::asset('ckeditor/lang/zh-cn.js','admin') )?>
-    <?=HTML::script( KUrl::asset('js/admin_custom.min.js','admin') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('js/admin.min.js') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('js/admin_lte.min.js') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('ckeditor/ckeditor.js') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('ckeditor/config.js') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('ckeditor/styles.js') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('ckeditor/lang/zh-cn.js') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('js/admin_custom.min.js') )?>
 </head>
 <body class="skin-blue">
 <!-- header logo: style can be found in header.less -->
@@ -116,14 +116,14 @@
 </section>
 <!-- Main content -->
 <section class="content">
-    {{ KMessager::show() }}
+    {{ \Xjtuwangke\LaravelCms\Elements\KMessager::show() }}
     {{ $content or '' }}
 </section><!-- /.content -->
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 @if ( isset( $js ) && is_array( $js ) )
 @foreach( $js as $one )
-<?=HTML::script( KUrl::asset( $one ,'admin') )?>
+<?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset( $one ) )?>
 @endforeach
 @endif
 {{ $analytics or '' }}

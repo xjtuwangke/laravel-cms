@@ -83,7 +83,8 @@ trait CMSEditTrait {
      */
     protected function _store( KForm $form , $item , $id = 0){
         $item = $form->save( $item );
-        return $item->save();
+        $item->save();
+        return $item;
     }
 
 

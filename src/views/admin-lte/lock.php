@@ -7,18 +7,18 @@
     <meta name="description" content="{{{ $description or '' }}}">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <?=HTML::style( KUrl::asset('css/basic.min.css','admin'))?>
-    <?=HTML::style( KUrl::asset('css/admin_lte.min.css','admin'))?>
-    <?=HTML::style( KUrl::asset('css/admin.min.css','admin'))?>
+    <?=HTML::style( Url::asset('laravel-cms::'))?>
+    <?=HTML::style( Xjtuwangke\LaravelCms\KUrl::asset('css/admin_lte.min.css'))?>
+    <?=HTML::style( Xjtuwangke\LaravelCms\KUrl::asset('css/admin.min.css'))?>
 
-    <?=HTML::script( KUrl::asset('js/basic.min.js','admin') )?>
-    <?=HTML::script( KUrl::asset('js/admin.min.js','admin') )?>
-    <?=HTML::script( KUrl::asset('js/admin_lte.min.js','admin') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('js/basic.min.js') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('js/admin.min.js') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('js/admin_lte.min.js') )?>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lte IE 8]>
-    <?=HTML::script( KUrl::asset('js/respond.min.js','admin') )?>
+    <?=HTML::script( Xjtuwangke\LaravelCms\KUrl::asset('js/respond.min.js') )?>
     <![endif]-->
 </head>
 <body>

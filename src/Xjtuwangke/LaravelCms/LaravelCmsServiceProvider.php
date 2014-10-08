@@ -23,6 +23,7 @@ class LaravelCmsServiceProvider extends ServiceProvider {
         {
             return new KValidator($translator, $data, $rules, $messages);
         });
+        include __DIR__.'/../../routes.php';
 	}
 
 	/**
