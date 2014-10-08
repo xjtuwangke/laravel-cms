@@ -7,7 +7,7 @@
         <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header bg-light-blue">
-                <img src="<?=$user->getAvatar()?>" class="img-circle" alt="User Image" />
+                <img src="<?=$user->avatar?>" class="img-circle" alt="User Image" />
                 <p>
                     <?=$user->username?> - <?=$user->role->title?>
                     <small>上次登陆时间<?=$user->last_login?></small>

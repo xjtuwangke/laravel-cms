@@ -12,7 +12,6 @@ use Xjtuwangke\LaravelCms\Controller\CMSBaseController;
 use Xjtuwangke\LaravelCms\Elements\KTable;
 use Xjtuwangke\LaravelCms\Elements\Form\FormField\FormFieldBase;
 use Xjtuwangke\LaravelCms\Elements\Form\KForm;
-use Xjtuwangke\LaravelCms\Elements\KPanel;
 
 use Illuminate\Support\Facades\Hash;
 use Xjtuwangke\LaravelModels\Rbac\RoleModel;
@@ -26,7 +25,7 @@ class AdminRoleController extends CMSBaseController {
 
     protected static $name = '管理员角色';
 
-    protected static $class = 'RoleModel';
+    protected static $class = 'Xjtuwangke\LaravelModels\Rbac\RoleModel';
 
     protected $navbar = [];
 

@@ -83,7 +83,7 @@ trait CMSButtonsTrait {
      * @return string
      */
     public static function block_btn_preview( $item ){
-        $url = HTMLize::create( $item )->url();
+        $url = \HTMLize::create( $item )->url();
         if( 'javascript:;' != $url && $url ){
             return <<<HTML
 <a class="btn btn-sm btn-warning gofarms-btn-actions" href="{$url}" target="_blank"><span class="glyphicon glyphicon-arrow-right" data-toggle="tooltip" data-placement="top" title="在网站中查看..."></span></a>

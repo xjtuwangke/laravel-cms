@@ -39,7 +39,7 @@ trait CMSPickUpTrait {
         $field   = Input::get( 'field' );
         $class   = static::$class;
         $action = static::$action.'.show.picked_up_item';
-        return View::make( 'cms/picked-up-items/' . static::$class . '_search' )
+        return View::make( 'laravel-cms::cms/picked-up-items/' . static::$class . '_search' )
             ->with( 'pattern' , $pattern )
             ->with( 'page' , $page )
             ->with( 'class' , $class )
@@ -53,13 +53,13 @@ trait CMSPickUpTrait {
             $id = KRandom::getRandStr( 32 , 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' );
         }
         $search_action = static::$action.'.show.search_pick_up_item';
-        return View::make( 'cms/picked-up-items/modal-search' )->with( 'id' , $id )->with( 'field' , $field )->with( 'search_action' , $search_action )->render();
+        return View::make( 'laravel-cms::cms/picked-up-items/modal-search' )->with( 'id' , $id )->with( 'field' , $field )->with( 'search_action' , $search_action )->render();
     }
 
     public static function display_picked_up_item( $id , $field ){
         $item = static::queryAll()->find( $id );
         $action = static::$action . ".show.picked_up_item";
-        return View::make( 'cms/picked-up-items/' . static::$class . '_show' )->with( 'item' , $item )->with( 'field' , $field )->with('action' , $action )->render();
+        return View::make( 'laravel-cms::cms/picked-up-items/' . static::$class . '_show' )->with( 'item' , $item )->with( 'field' , $field )->with('action' , $action )->render();
     }
 
 } 

@@ -9,12 +9,12 @@
 namespace Xjtuwangke\LaravelCms\Filters;
 
 use Illuminate\Support\Facades\Config;
+use Xjtuwangke\LaravelCms\Auth\Permission;
 use Xjtuwangke\LaravelModels\Rbac\RoleModel;
 use Xjtuwangke\LaravelModels\AuthModel;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
-use \AdminUserModel;
 
 class AdminFilter {
 
@@ -50,7 +50,7 @@ class AdminFilter {
 
     public function rightsFilter( $user , \Illuminate\Routing\Route $route ){
         $this->action = $route->getName();
-        return AdminUserModel::checkAdminPermission( $user , $this->action , Route::current()->parameters() );
+        return Permission::check( $user , $this->action , Route::current()->parameters() );
     }
 
 } 

@@ -10,6 +10,7 @@ namespace Xjtuwangke\LaravelCms\Auth;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 class AdminMenu {
 
@@ -125,7 +126,7 @@ class AdminMenu {
     }
 
     public function initMenu(){
-        return Config::get( 'menu_admin' );
+        return Config::get( 'laravel-cms::menu_admin' );
         /*
         return array(
             '单个action0' => 'admin.issue.show.index',

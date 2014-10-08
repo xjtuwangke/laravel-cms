@@ -44,9 +44,9 @@ trait CMSDetailTrait {
         $item = static::queryAll()->withTrashed()->find( $id );
         $this->fireCMSControllerEvent( 'showing' , [ $item , $id ] );
         $panels = $this->_show( $item );
-        $this->layout->content = View::make( 'cms/panels' )->with( 'panels' , $panels );
+        $this->layout->content = View::make( 'laravel-cms::cms/panels' )->with( 'panels' , $panels );
 
-        $url = HTMLize::create( $item )->url();
+        $url = \HTMLize::create( $item )->url();
         if( 'javascript:;' != $url && $url ){
             $shortcut = new \stdClass();
             $shortcut->url = $url;

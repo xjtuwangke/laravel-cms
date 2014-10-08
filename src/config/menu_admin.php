@@ -8,11 +8,6 @@
 
 return array(
     '首页' => 'admin.index' ,
-    '用户' => [
-        '查看用户' =>  'admin.user.show.index',
-        '新建用户' => 'admin.user.create.form',
-        '回收站' => 'admin.user.delete.trashed',
-    ],
     '管理员角色' => [
         '查看角色' => 'admin.role.show.index',
         '新建角色' => 'admin.role.create.form',

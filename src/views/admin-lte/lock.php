@@ -7,7 +7,7 @@
     <meta name="description" content="{{{ $description or '' }}}">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <?=HTML::style( Url::asset('laravel-cms::'))?>
+    <?=HTML::style( Xjtuwangke\LaravelCms\KUrl::asset('css/basic.min.css'))?>
     <?=HTML::style( Xjtuwangke\LaravelCms\KUrl::asset('css/admin_lte.min.css'))?>
     <?=HTML::style( Xjtuwangke\LaravelCms\KUrl::asset('css/admin.min.css'))?>
 
@@ -33,7 +33,7 @@
     <div class="lockscreen-item">
         <!-- lockscreen image -->
         <div class="lockscreen-image">
-            <img src="<?=$user->getAvatar()?>" alt="user image"/>
+            <img src="<?=$user->avatar?>" alt="user image"/>
         </div>
         <!-- /.lockscreen-image -->
         <!-- lockscreen credentials (contains the form) -->

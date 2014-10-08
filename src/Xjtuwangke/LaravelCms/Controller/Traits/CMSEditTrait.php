@@ -105,7 +105,7 @@ trait CMSEditTrait {
             $this->fireCMSControllerEvent( 'creating' , [ $form , $model ] );
 
         }
-        $this->layout->content = View::make( 'cms/form' )->with( 'form' , $form );
+        $this->layout->content = View::make( 'laravel-cms::cms/form' )->with( 'form' , $form );
         $this->layout->title = '新建' . static::$name ;
     }
 
@@ -135,7 +135,7 @@ trait CMSEditTrait {
             }
 
 
-            $url = HTMLize::create( $item )->url();
+            $url = \HTMLize::create( $item )->url();
             if( 'javascript:;' != $url && $url ){
                 $link.= HTML::link( $url  , '&nbsp;查看网页&nbsp;' , [ 'target' => '_blank'] );
             }
@@ -158,7 +158,7 @@ trait CMSEditTrait {
             // 以下方式会导致chrome崩溃掉...
             //Session::flash( 'flashdata_create_form' , $form );
             //return Redirect::action( static::$action . '.create' );
-            $this->layout->content = View::make( 'cms/form' )->with( 'form' , $form );
+            $this->layout->content = View::make( 'laravel-cms::cms/form' )->with( 'form' , $form );
         }
     }
 
@@ -179,7 +179,7 @@ trait CMSEditTrait {
 
             $form = $this->_form( $id , $item );
         }
-        $this->layout->content = View::make( 'cms/form' )->with( 'form' , $form );
+        $this->layout->content = View::make( 'laravel-cms::cms/form' )->with( 'form' , $form );
         $this->layout->title = '编辑' . static::$name ;
     }
 
@@ -214,7 +214,7 @@ trait CMSEditTrait {
                 $link.= '';
             }
 
-            $url = HTMLize::create( $item )->url();
+            $url = \HTMLize::create( $item )->url();
             if( 'javascript:;' != $url && $url ){
                 $link.= HTML::link( $url  , '&nbsp;查看网页&nbsp;' , [ 'target' => '_blank'] );
             }
@@ -235,7 +235,7 @@ trait CMSEditTrait {
             // 以下方式会导致chrome崩溃掉...
             //Session::flash( 'flashdata_create_form' , $form );
             //return Redirect::action( static::$action . '.create' );
-            $this->layout->content = View::make( 'cms/form' )->with( 'form' , $form );
+            $this->layout->content = View::make( 'laravel-cms::cms/form' )->with( 'form' , $form );
         }
     }
 
