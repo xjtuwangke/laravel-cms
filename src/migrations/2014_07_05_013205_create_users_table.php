@@ -13,7 +13,6 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-use Xjtuwangke\LaravelModels\Rbac\AdminUserModel;
 use Xjtuwangke\LaravelModels\Rbac\RoleModel;
 
 class CreateUsersTable extends Migration {
@@ -27,15 +26,7 @@ class CreateUsersTable extends Migration {
 	{
         //创建admins表
         Schema::create( AdminUserModel::getTableName() , function( Blueprint $table ){
-            $table->string( 'username' , 100 )->unique();
-            $table->string( 'employee_id' , 100 )->unique();
-            $table->string( 'email' , 100 )->unique();
-            $table->string( 'mobile' , 20 )->unique();
-            $table->string( 'avatar' , 200 )->nullable();
-            $table->string( 'password' , 100 );
-            $table->string( 'remember_token' , 100 );
             AdminUserModel::_schema( $table );
-            $table->timestamp( 'last_login' );
         });
 
         //创建roles表

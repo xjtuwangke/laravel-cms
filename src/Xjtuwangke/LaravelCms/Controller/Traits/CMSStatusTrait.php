@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\URL;
-use Xjtuwangke\LaravelModels\Rbac\AdminUserModel;
 use Xjtuwangke\LaravelCms\Auth\Permission;
 
 trait CMSStatusTrait {

@@ -19,6 +19,8 @@
         "classmap": [
             "src/migrations"
             , "src/controllers"
+            , "src/seeds"
+            , "src/filters"
         ],
         "psr-0": {
             "Xjtuwangke\\LaravelCms\\": "src/"

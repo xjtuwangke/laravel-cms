@@ -10,7 +10,6 @@
 namespace Xjtuwangke\LaravelCms\Controller\Traits;
 
 use Illuminate\Support\Facades\URL;
-use Xjtuwangke\LaravelModels\Rbac\AdminUserModel;
 use Illuminate\Support\Facades\Session;
 use Xjtuwangke\LaravelCms\Auth\Permission;
 

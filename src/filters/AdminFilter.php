@@ -14,7 +14,7 @@ use Xjtuwangke\LaravelModels\AuthModel;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
-use Xjtuwangke\LaravelModels\Rbac\AdminUserModel;
+use \AdminUserModel;
 
 class AdminFilter {
 
