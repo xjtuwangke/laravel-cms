@@ -15,7 +15,7 @@ trait AdminBaseControllerTrait{
         $this->layout = View::make('laravel-cms::layouts/admin-lte');
         $this->layout->content = '';
         $this->layout->title = '';
-        $this->layout->site_name = Config::get( 'laravel-cms::site.site_name' );
+        $this->layout->site_name = Config::get( 'laravel-cms::site.name' );
         $this->layout->css = [];
         $this->layout->js  = [];
 

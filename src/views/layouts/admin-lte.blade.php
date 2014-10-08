@@ -61,8 +61,8 @@
         <!-- Messages: style can be found in dropdown.less-->
         <!-- Notifications: style can be found in dropdown.less -->
         <li class="dropdown report-bug-menu">
-            <a href="mailto:kwang@rollong.com">
-                <i class="fa fa-bug"></i>上报Bug(版本:{{{ Config::get('gofarms.version') }}})
+            <a href="mailto:{{{ Config::get('aravel-cms::site.email') }}}">
+                <i class="fa fa-bug"></i>上报Bug(版本:{{{ Config::get('laravel-cms::site.version') }}})
             </a>
         </li>
         <li class="dropdown lock-screen-menu">

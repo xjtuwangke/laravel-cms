@@ -17,7 +17,6 @@ Route::get( 'admin/forbidden' , array( 'as' => 'admin.forbidden' , function(){
 </head>
 </html>
 HTML;
-
     return Response::make( $html , 401);
 }));
 
@@ -25,6 +24,8 @@ Route::filter( 'adminFilter' , 'Xjtuwangke\LaravelCms\Filters\AdminFilter' );
 
 Route::get( 'admin/login' , [ 'as' => 'admin.login' , 'uses' => 'Xjtuwangke\LaravelCms\Controllers\AdminController@login' ] );
 Route::post( 'admin/login' , [ 'before' => [ 'csrf' ] , 'uses' => 'Xjtuwangke\LaravelCms\Controllers\AdminController@login' ]);
+
+UploadifyController::registerRoutes();
 
 Route::group( ['before'=> ['adminFilter'] ] , function(){
 
@@ -39,5 +40,9 @@ Route::group( ['before'=> ['adminFilter'] ] , function(){
 
     \Xjtuwangke\LaravelCms\Controllers\AdminAdminController::registerRoutes();
     \Xjtuwangke\LaravelCms\Controllers\AdminRoleController::registerRoutes();
+
+    if( file_exists( app_path( 'routes/admin.routes.php') ) ){
+        include( app_path( 'routes/admin.routes.php') );
+    }
 
 });
