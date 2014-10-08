@@ -4,7 +4,7 @@ namespace Xjtuwangke\LaravelCms\Controllers;
 
 use Illuminate\Support\Facades\View;
 
-class BaseController extends Controller {
+class BaseController extends \Controller {
 
     use \Xjtuwangke\LaravelCms\Controller\Traits\ControllerEventTrait;
 

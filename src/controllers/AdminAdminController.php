@@ -90,11 +90,11 @@ class AdminAdminController extends CMSBaseController {
         $form = parent::_form( $id , $item );
         $form->addField( FormFieldBase::createByType( 'username' , FormFieldBase::Type_Text )->setRules( 'required' )->setLabel('请输入用户名')->setCol( 1/3 ) );
         $form->addField( FormFieldBase::createByType( 'password' , FormFieldBase::Type_Text )->setRules( 'required' )->setLabel('请输入密码')->setCol( 1/3 ) );
-        $form->addField( FormFieldBase::createByType( 'email' , FormFieldBase::Type_Text )->setRules( 'required|unique:admins,email,{$id}' )->setLabel('请输入邮箱')->setCol( 1/3 ) );
+        $form->addField( FormFieldBase::createByType( 'email' , FormFieldBase::Type_Text )->setRules( "required|unique:admins,email,{$id}" )->setLabel('请输入邮箱')->setCol( 1/3 ) );
         $form->newRow();
 
-        $form->addField( FormFieldBase::createByType( 'mobile' , FormFieldBase::Type_Text )->setRules( 'required|unique:admins,mobile,{$id}|mobile' )->setLabel('请输入手机')->setCol( 1/2 ) );
-        $form->addField( FormFieldBase::createByType( 'employee_id' , FormFieldBase::Type_Text )->setRules( 'required|unique:admins,employee_id,{$id}' )->setLabel('请输入工号')->setCol( 1/2 ) );
+        $form->addField( FormFieldBase::createByType( 'mobile' , FormFieldBase::Type_Text )->setRules( "required|unique:admins,mobile,{$id}|mobile" )->setLabel('请输入手机')->setCol( 1/2 ) );
+        $form->addField( FormFieldBase::createByType( 'employee_id' , FormFieldBase::Type_Text )->setRules( "required|unique:admins,employee_id,{$id}" )->setLabel('请输入工号')->setCol( 1/2 ) );
         $form->newRow();
 
         $form->addField( FormFieldBase::createByType( 'avatar' , FormFieldBase::Type_Image )->setLabel('头像')->setCol( 1/2 ) );

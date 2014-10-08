@@ -63,28 +63,28 @@ class UploadifyController extends BaseController{
         $path = 'upload/' . date('Ym/d/');
         $filename = KRandom::getRandStr() . '.jpg';
         if( ! File::exists( storage_path( $path ) ) ){
-            File::makeDirectory( storage_path( $path ) , 493 , true );
+            File::makeDirectory( public_path( $path ) , 493 , true );
         }
-        while( File::exists( storage_path( $path ) . $filename ) ){
+        while( File::exists( public_path( $path ) . $filename ) ){
             $filename = KRandom::getRandStr() . '.jpg';
         }
-        $this->image->save( storage_path( $path ) . $filename );
-        ImageModel::createUploadedImage( $path . $filename , KUrl::upload( $path . $filename ) );
+        $this->image->save( public_path( $path ) . $filename );
+        ImageModel::createUploadedImage( $path . $filename , URL::asset( $path . $filename ) );
         return URL::asset( $path . $filename );
     }
 
     protected function imageAvatar(){
         $path = 'upload/' . date('Ym/d/');
         $filename = KRandom::getRandStr() . '.jpg';
-        if( ! File::exists( storage_path( $path ) ) ){
-            File::makeDirectory( storage_path( $path ) , 493 , true );
+        if( ! File::exists( public_path( $path ) ) ){
+            File::makeDirectory( public_path( $path ) , 493 , true );
         }
-        while( File::exists( storage_path( $path ) . $filename ) ){
+        while( File::exists( public_path( $path ) . $filename ) ){
             $filename = KRandom::getRandStr() . '.jpg';
         }
         $this->image->resize( new \Imagine\Image\Box( 300 , 300 ) )
-            ->save( storage_path( $path ) . $filename );
-        ImageModel::createUploadedImage( $path . $filename , KUrl::upload( $path . $filename ) );
+            ->save( public_path( $path ) . $filename );
+        ImageModel::createUploadedImage( $path . $filename , URL::asset( $path . $filename ) );
         $user = AuthModel::user();
         $url = URL::asset( $path . $filename );
         if( $user ){
