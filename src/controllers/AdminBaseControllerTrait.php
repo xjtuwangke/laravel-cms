@@ -12,10 +12,10 @@ trait AdminBaseControllerTrait{
 
     protected function setupLayout()
     {
-        $this->layout = View::make('xjtuwangke/laravel-cms::layouts.admin-lte');
+        $this->layout = View::make('laravel-cms::layouts/admin-lte');
         $this->layout->content = '';
         $this->layout->title = '';
-        $this->layout->site_name = Config::get( 'xjtuwangke/laravel-cms::site.site_name' );
+        $this->layout->site_name = Config::get( 'laravel-cms::site.site_name' );
         $this->layout->css = [];
         $this->layout->js  = [];
 
@@ -36,7 +36,7 @@ trait AdminBaseControllerTrait{
 
         $menu = $menu->getMenu();
 
-        $this->layout->navbar = View::make( 'xjtuwangke/laravel-cms::admin-lte/navbar' )->with( 'menu' , $menu );
-        $this->layout->usermenu = View::make( 'xjtuwangke/laravel-cms::admin-lte/user_menu' )->with( 'user' , AuthModel::getUser() );
+        $this->layout->navbar = View::make( 'laravel-cms::admin-lte/navbar' )->with( 'menu' , $menu );
+        $this->layout->usermenu = View::make( 'laravel-cms::admin-lte.user_menu' )->with( 'user' , AuthModel::getUser() );
     }
 }

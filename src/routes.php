@@ -21,12 +21,12 @@ HTML;
     return Response::make( $html , 401);
 }));
 
-Route::filter( 'adminFilter' , 'AdminFilter' );
+Route::filter( 'adminFilter' , 'Xjtuwangke\LaravelCms\Filters\AdminFilter' );
 
 Route::get( 'admin/login' , [ 'as' => 'admin.login' , 'uses' => 'Xjtuwangke\LaravelCms\Controllers\AdminController@login' ] );
 Route::post( 'admin/login' , [ 'before' => [ 'csrf' ] , 'uses' => 'Xjtuwangke\LaravelCms\Controllers\AdminController@login' ]);
 
-Route::group( ['before'=> ['Xjtuwangke\LaravelCms\Filters\AdminFilter'] ] , function(){
+Route::group( ['before'=> ['adminFilter'] ] , function(){
 
     Route::get('admin/logout' , [ 'as' => 'admin.logout' , 'uses' => 'Xjtuwangke\LaravelCms\Controllers\AdminController@logout' ] );
     Route::get( 'admin' , [ 'as' => 'admin.index' , 'uses' => 'Xjtuwangke\LaravelCms\Controllers\AdminController@index' ] );

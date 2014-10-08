@@ -27,8 +27,6 @@ class CreateUsersTable extends Migration {
 	{
         //创建admins表
         Schema::create( AdminUserModel::getTableName() , function( Blueprint $table ){
-            $table->engine = 'InnoDB';
-            $table->increments( 'id' );
             $table->string( 'username' , 100 )->unique();
             $table->string( 'employee_id' , 100 )->unique();
             $table->string( 'email' , 100 )->unique();
@@ -38,17 +36,11 @@ class CreateUsersTable extends Migration {
             $table->string( 'remember_token' , 100 );
             AdminUserModel::_schema( $table );
             $table->timestamp( 'last_login' );
-            $table->softDeletes();
-            $table->timestamps();
         });
 
         //创建roles表
         Schema::create( RoleModel::getTableName() , function( Blueprint $table ){
-            $table->engine = 'InnoDB';
-            $table->increments( 'id' );
             RoleModel::_schema( $table );
-            $table->softDeletes();
-            $table->timestamps();
         });
 	}
 

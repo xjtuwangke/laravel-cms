@@ -10,7 +10,7 @@ namespace Xjtuwangke\LaravelCms\Elements\Form;
 
 use \Illuminate\Support\Facades\Form;
 use \Illuminate\Support\Facades\Input;
-use Xjtuwangke\LaravelKform\FormField\FormFieldBase;
+use Xjtuwangke\LaravelCms\Elements\Form\FormField\FormFieldBase;
 
 /**
  * Class KForm

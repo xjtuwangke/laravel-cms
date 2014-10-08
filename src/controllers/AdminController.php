@@ -21,11 +21,11 @@ class AdminController extends Controller{
     use AdminBaseControllerTrait;
 
     public function __construct(){
-        Config::set( 'auth' , Config::get( 'xjtuwangke/laravel-cms::auth_admin' ) );
+        Config::set( 'auth' , Config::get( 'laravel-cms::auth_admin' ) );
     }
 
     public function index(){
-        $this->layout->content= View::make( 'xjtuwangke/laravel-cms::admin-lte/index' );
+        $this->layout->content= View::make( 'laravel-cms::admin-lte/index' );
         $this->layout->title = '首页';
         //$this->layout->analytics = View::make( 'parts/google_analytics' , [ 'id' => 'UA-1234-5' ] );
     }
@@ -36,7 +36,7 @@ class AdminController extends Controller{
             $referer = $_SERVER['HTTP_REFERER'];
             Session::set( 'admin_lock_url' , $referer );
         }
-        return View::make( 'xjtuwangke/laravel-cms::admin-lte/lock' )->with( 'user' , AuthModel::getUser() )->with( 'error' , $error );
+        return View::make( 'laravel-cms::admin-lte/lock' )->with( 'user' , AuthModel::getUser() )->with( 'error' , $error );
     }
 
     public function unlock(){
@@ -82,7 +82,7 @@ class AdminController extends Controller{
                 //
             }
         }
-        $this->layout = View::make( 'xjtuwangke/laravel-cms::admin-lte/login' )->with( 'form' , $loginForm );
+        $this->layout = View::make( 'laravel-cms::admin-lte/login' )->with( 'form' , $loginForm );
     }
 
     public function logout(){

@@ -23,7 +23,7 @@ class AdminFilter {
     protected $action         = null;
 
     function __construct(){
-        Config::set( 'auth' , Config::get( 'auth_admin' ) );
+        Config::set( 'auth' , Config::get( 'laravel-cms::auth_admin' ) );
         RoleModel::registerAllRoles();
     }
 

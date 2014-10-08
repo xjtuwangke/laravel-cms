@@ -1,6 +1,7 @@
 <?php namespace Xjtuwangke\LaravelCms;
 
 use Illuminate\Support\ServiceProvider;
+use Xjtuwangke\LaravelCms\Elements\Form\KValidator;
 
 class LaravelCmsServiceProvider extends ServiceProvider {
 
@@ -18,7 +19,7 @@ class LaravelCmsServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('xjtuwangke/laravel-cms');
+		$this->package( 'xjtuwangke/laravel-cms' , 'laravel-cms' );
         \Validator::resolver(function($translator, $data, $rules, $messages)
         {
             return new KValidator($translator, $data, $rules, $messages);
