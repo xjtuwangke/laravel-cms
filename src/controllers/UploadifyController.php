@@ -62,7 +62,7 @@ class UploadifyController extends BaseController{
     protected function imageDefault(){
         $path = 'upload/' . date('Ym/d/');
         $filename = KRandom::getRandStr() . '.jpg';
-        if( ! File::exists( storage_path( $path ) ) ){
+        if( ! File::exists( public_path( $path ) ) ){
             File::makeDirectory( public_path( $path ) , 493 , true );
         }
         while( File::exists( public_path( $path ) . $filename ) ){
