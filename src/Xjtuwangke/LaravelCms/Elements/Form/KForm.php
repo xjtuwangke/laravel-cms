@@ -186,7 +186,7 @@ class KForm {
     public function modelToDefault( $model ){
         foreach( $this->fields as $field ){
             $value = $this->getModelValueAttribute( $field->name() , $model );
-            if( $value ){
+            if( ! is_null( $value ) ){
                 $field->setDefault( $value );
             }
         }

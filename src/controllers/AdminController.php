@@ -27,6 +27,7 @@ class AdminController extends Controller{
     public function index(){
         $this->layout->content= View::make( 'laravel-cms::admin-lte/index' );
         $this->layout->title = '首页';
+        $this->layout->site_name = Config::get( 'laravel-cms::site.name' );
         //$this->layout->analytics = View::make( 'laravel-cms::parts/google_analytics' , [ 'id' => 'UA-1234-5' ] );
     }
 

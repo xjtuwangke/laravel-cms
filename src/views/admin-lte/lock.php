@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>管理页面_农场来了</title>
+    <title>管理页面_<?=Config::get( 'laravel-cms::site.name' )?></title>
     <meta name="description" content="{{{ $description or '' }}}">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
