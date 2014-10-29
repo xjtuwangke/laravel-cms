@@ -40,7 +40,7 @@ class KPanel {
     }
 
     public function title( $title = '' , $xss = true ){
-        if( false == $xss ){
+        if( false !== $xss ){
             $this->title = e( $title );
         }
         else{
