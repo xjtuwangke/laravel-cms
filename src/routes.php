@@ -39,7 +39,7 @@ Route::group( ['before'=> ['adminFilter'] ] , function(){
     Route::post( "admin/uploadify/image" , [ 'before' => [ 'csrf' ] , 'as' => "admin.uploadify.image" , 'uses' => "UploadifyController@image" ] );
 
     \Xjtuwangke\LaravelCms\Controllers\AdminAdminController::registerRoutes();
-    \Xjtuwangke\LaravelCms\Controllers\AdminRoleController::registerRoutes();
+    //\Xjtuwangke\LaravelCms\Controllers\AdminRoleController::registerRoutes();
 
     if( file_exists( app_path( 'routes/admin.routes.php') ) ){
         include( app_path( 'routes/admin.routes.php') );

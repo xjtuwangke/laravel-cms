@@ -87,6 +87,69 @@ class AdminRoleController extends CMSBaseController {
         return $result;
     }
 
+    protected function _rightsForm( $form , $item ){
+        $form->addField( FormFieldBase::createByType( 'rights[customer]' , FormFieldBase::Type_CheckGroup )
+                ->setLabel( '用户管理权限' )
+                ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
+                ->setSelected( $this->_rights( $item , 'admin.customer' ) )
+        );
+
+        $form->addField( FormFieldBase::createByType( 'rights[issue]' , FormFieldBase::Type_CheckGroup )
+                ->setLabel( '客服权限' )
+                ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
+                ->setSelected( $this->_rights( $item , 'admin.issue' ) )
+        );
+
+        $form->addField( FormFieldBase::createByType( 'rights[farm]' , FormFieldBase::Type_CheckGroup )
+                ->setLabel( '农场管理权限' )
+                ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
+                ->setSelected( $this->_rights( $item , 'admin.farm' ) )
+        );
+
+        $form->addField( FormFieldBase::createByType( 'rights[farmactivity]' , FormFieldBase::Type_CheckGroup )
+                ->setLabel( '农场活动权限' )
+                ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
+                ->setSelected( $this->_rights( $item , 'admin.farmactivity' ) )
+        );
+
+        $form->addField( FormFieldBase::createByType( 'rights[goods]' , FormFieldBase::Type_CheckGroup )
+                ->setLabel( '商品管理权限' )
+                ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
+                ->setSelected( $this->_rights( $item , 'admin.goods' ) )
+        );
+
+        $form->addField( FormFieldBase::createByType( 'rights[order]' , FormFieldBase::Type_CheckGroup )
+                ->setLabel( '订单管理权限' )
+                ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
+                ->setSelected( $this->_rights( $item , 'admin.order' ) )
+        );
+
+        $form->addField( FormFieldBase::createByType( 'rights[article]' , FormFieldBase::Type_CheckGroup )
+                ->setLabel( '文章管理权限' )
+                ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
+                ->setSelected( $this->_rights( $item , 'admin.article' ) )
+        );
+
+        $form->addField( FormFieldBase::createByType( 'rights[cookbook]' , FormFieldBase::Type_CheckGroup )
+                ->setLabel( '菜谱管理权限' )
+                ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
+                ->setSelected( $this->_rights( $item , 'admin.cookbook' ) )
+        );
+
+        $form->addField( FormFieldBase::createByType( 'rights[logistics]' , FormFieldBase::Type_CheckGroup )
+                ->setLabel( '仓储管理权限' )
+                ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
+                ->setSelected( $this->_rights( $item , 'admin.logistics' ) )
+        );
+
+        $form->addField( FormFieldBase::createByType( 'rights[payments]' , FormFieldBase::Type_CheckGroup )
+                ->setLabel( '支付管理权限' )
+                ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' ] )
+                ->setSelected( $this->_rights( $item , 'admin.payments' ) )
+        );
+        return $form;
+    }
+
     /**
      * 生成新建或修改表单
      * @param null $item
@@ -104,67 +167,7 @@ class AdminRoleController extends CMSBaseController {
 
         }
         else{
-
-            $form->addField( FormFieldBase::createByType( 'rights[customer]' , FormFieldBase::Type_CheckGroup )
-                    ->setLabel( '用户管理权限' )
-                    ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
-                    ->setSelected( $this->_rights( $item , 'admin.customer' ) )
-            );
-
-            $form->addField( FormFieldBase::createByType( 'rights[issue]' , FormFieldBase::Type_CheckGroup )
-                    ->setLabel( '客服权限' )
-                    ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
-                    ->setSelected( $this->_rights( $item , 'admin.issue' ) )
-            );
-
-            $form->addField( FormFieldBase::createByType( 'rights[farm]' , FormFieldBase::Type_CheckGroup )
-                    ->setLabel( '农场管理权限' )
-                    ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
-                    ->setSelected( $this->_rights( $item , 'admin.farm' ) )
-            );
-
-            $form->addField( FormFieldBase::createByType( 'rights[farmactivity]' , FormFieldBase::Type_CheckGroup )
-                    ->setLabel( '农场活动权限' )
-                    ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
-                    ->setSelected( $this->_rights( $item , 'admin.farmactivity' ) )
-            );
-
-            $form->addField( FormFieldBase::createByType( 'rights[goods]' , FormFieldBase::Type_CheckGroup )
-                    ->setLabel( '商品管理权限' )
-                    ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
-                    ->setSelected( $this->_rights( $item , 'admin.goods' ) )
-            );
-
-            $form->addField( FormFieldBase::createByType( 'rights[order]' , FormFieldBase::Type_CheckGroup )
-                    ->setLabel( '订单管理权限' )
-                    ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
-                    ->setSelected( $this->_rights( $item , 'admin.order' ) )
-            );
-
-            $form->addField( FormFieldBase::createByType( 'rights[article]' , FormFieldBase::Type_CheckGroup )
-                    ->setLabel( '文章管理权限' )
-                    ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
-                    ->setSelected( $this->_rights( $item , 'admin.article' ) )
-            );
-
-            $form->addField( FormFieldBase::createByType( 'rights[cookbook]' , FormFieldBase::Type_CheckGroup )
-                    ->setLabel( '菜谱管理权限' )
-                    ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
-                    ->setSelected( $this->_rights( $item , 'admin.cookbook' ) )
-            );
-
-            $form->addField( FormFieldBase::createByType( 'rights[logistics]' , FormFieldBase::Type_CheckGroup )
-                    ->setLabel( '仓储管理权限' )
-                    ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' , 'create.*' => '新建' , 'delete.*' => '删除' ] )
-                    ->setSelected( $this->_rights( $item , 'admin.logistics' ) )
-            );
-
-            $form->addField( FormFieldBase::createByType( 'rights[payments]' , FormFieldBase::Type_CheckGroup )
-                    ->setLabel( '支付管理权限' )
-                    ->setOptions( [ 'show.*' => '查看' , 'edit.*' => '编辑' ] )
-                    ->setSelected( $this->_rights( $item , 'admin.payments' ) )
-            );
-
+            $form = $this->_rightsForm( $form  , $item );
         }
 
         if( $id ){
