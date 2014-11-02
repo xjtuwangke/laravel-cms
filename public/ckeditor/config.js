@@ -35,4 +35,7 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
+
+	config.filebrowserImageBrowseUrl = '/packages/xjtuwangke/laravel-finder/ckfinder.html?Type=Images'; //上传图片时浏览服务文件夹
+	config.filebrowserImageUploadUrl = '/packages/xjtuwangke/laravel-finder/core/connector/php/connector.php?command=QuickUpload&type=Images'
 };
