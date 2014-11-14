@@ -7,6 +7,7 @@
  */
 
 return array(
+    /*
     '首页' => 'admin.index' ,
     '管理员角色' => [
         '查看角色' => 'admin.role.show.index',
@@ -18,4 +19,5 @@ return array(
         '新建管理员' => 'admin.admin.create.form',
         '回收站' => 'admin.admin.delete.trashed',
     ],
+    */
 );
