@@ -9007,3 +9007,9 @@ textarea[form-data-role="wysiwyg"] {
 aside.right-side > section.content {
   padding-bottom: 180px;
 }
+div[form-role="image-upload"] {
+  padding-left: 25px;
+}
+div[form-role="multi-image-upload"] {
+  padding-left: 25px;
+}
