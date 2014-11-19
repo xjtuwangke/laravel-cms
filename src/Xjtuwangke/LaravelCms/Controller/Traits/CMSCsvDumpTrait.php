@@ -15,17 +15,30 @@ use Goodby\CSV\Export\Standard\Exporter;
 use Goodby\CSV\Export\Standard\ExporterConfig;
 
 trait CMSCsvDumpTrait {
+
     /**
-     * @param array $attributes  array( '中文描述' => 'key' );
-     * @param       $title
-     * @return mixed
+     * @param array  $attributes array( '中文描述' => 'key' );
+     * @param string $title
+     * @param array  $data
+     * @param string $fromCharSet
+     * @param string $toCharSet
+     * @return \Symfony\Component\HttpFoundation\StreamedResponse
      */
     public function export_csv( array $attributes , $title = 'csv-data-dump' , $data = array() , $fromCharSet = 'UTF-8' , $toCharSet = 'UTF-8' ){
 
         $title.= '-' . date( 'Ymd-His');
         $config = new ExporterConfig();
-        $config->setFromCharset( $fromCharSet )
+        $config
+            ->setEnclosure("'")  // Customize enclosure. Default value is double quotation(")
+            ->setEscape("\\")    // Customize escape character. Default value is backslash(\)
+            ->setFromCharset( $fromCharSet )
             ->setToCharset( $toCharSet );
+        $head = array( [] , [] );
+        foreach( $attributes as $key => $val ){
+            $head[0][] = $key;
+            $head[1][] = $val;
+        }
+        $data = array_merge( $head , $data );
 
         $headers = array(
             'Content-type' => "application/csv; filename=\"{$title}.csv\"" ,
@@ -33,23 +46,24 @@ trait CMSCsvDumpTrait {
             'Cache-Control' => "no-cache" ,
         );
         $response = \Response::stream(
-            function() use( $config , $attributes , $data ){
+            function() use( $config , $data ){
                 $exporter = new Exporter($config);
-                $exporter->export('php://output', array(
-                    array_keys( $attributes ) ,
-                    $attributes ,
-                    $data ,
-                ));
+                $exporter->export('php://output', $data );
             }
             , 200
             , $headers);
         return $response;
     }
 
+    /**
+     * @param        $filePath
+     * @param string $fromCharSet
+     * @param string $toCharSet
+     * @return array
+     */
     public function import_csv( $filePath , $fromCharSet = 'UTF-8' , $toCharSet = 'UTF-8' ){
         $config = new LexerConfig();
         $config
-            ->setDelimiter("\t") // Customize delimiter. Default value is comma(,)
             ->setEnclosure("'")  // Customize enclosure. Default value is double quotation(")
             ->setEscape("\\")    // Customize escape character. Default value is backslash(\)
             ->setToCharset( $toCharSet ) // Customize target encoding. Default value is null, no converting.
