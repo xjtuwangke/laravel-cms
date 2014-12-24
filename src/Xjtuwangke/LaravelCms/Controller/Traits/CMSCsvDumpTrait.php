@@ -29,6 +29,7 @@ trait CMSCsvDumpTrait {
         $title.= '-' . date( 'Ymd-His');
         $config = new ExporterConfig();
         $config
+            ->setDelimiter(';')
             ->setEnclosure("'")  // Customize enclosure. Default value is double quotation(")
             ->setEscape("\\")    // Customize escape character. Default value is backslash(\)
             ->setFromCharset( $fromCharSet )
@@ -64,6 +65,7 @@ trait CMSCsvDumpTrait {
     public function import_csv( $filePath , $fromCharSet = 'UTF-8' , $toCharSet = 'UTF-8' ){
         $config = new LexerConfig();
         $config
+            ->setDelimiter(';')
             ->setEnclosure("'")  // Customize enclosure. Default value is double quotation(")
             ->setEscape("\\")    // Customize escape character. Default value is backslash(\)
             ->setToCharset( $toCharSet ) // Customize target encoding. Default value is null, no converting.
