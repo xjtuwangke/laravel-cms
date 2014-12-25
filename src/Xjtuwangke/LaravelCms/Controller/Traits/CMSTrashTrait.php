@@ -95,7 +95,12 @@ trait CMSTrashTrait {
      */
     public function trash(){
         $id = Input::get( 'id' );
-        $count = static::queryAll()->where( 'id' , $id )->delete();
+        $users = static::queryAll()->where( 'id' , $id )->get();
+        $count = 0;
+        foreach( $users as $user ){
+            $count++;
+            $user->delete();
+        }
         KMessager::push( "删除了{$count}条数据" , KMessager::NOTICE );
         return Redirect::action( static::$action . '.show.index' );
     }
